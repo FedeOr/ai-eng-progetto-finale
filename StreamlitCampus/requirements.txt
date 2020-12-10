@@ -1,0 +1,9 @@
+matplotlib
+pandas
+scikit-learn
+azure-storage-blob
+requests
+streamlit
+numpy==1.19.3
+pyodbc
+azure-functions
