@@ -6,7 +6,40 @@ Il modello utilizzato per rilevare le eventuali anomalie all'interno del dataset
 
 L'interfaccia è realizzata tramite la libreria Python `Streamlit` e le predizioni sono calcolate dal modello salvato tramite **Databricks** su Azure.
 
-### Struttura folder del progetto
+## Struttura folder del progetto
+
+- **StreamlitCampus**
+
+  | File | Description |
+  | --- | --- |
+  | app.py | script python contenente l'interfaccia creata con Streamlit |
+  | load_setting.py | creato per recepire le informazioni salvate tramite formato .json |
+  | requirements.txt | file contenente tutte le librerie necessarie per il funzionamento del progetto |
+  
+  - **images**
+  
+    _Folder contenente le immagini utilizzate per l'interfaccia finale_
+  
+  - **src**
+  
+    - **features**
+      
+      | File | Description |
+      | --- | --- |
+      | preprocess.py | utilizzato per le funzioni di trasformazione e preprocessing del dataset |
+      | read_data.py | creato per connettersi al database e eseguire query d'estrazione |
+    
+    - **model**
+    
+      | File | Description |
+      | --- | --- |
+      | predict_model.py | richiama il modello per fare la predizione sui nuovi dati estratti dal database |
+    
+    - **prediction**
+    
+      | File | Description |
+      | --- | --- |
+      | save_prediction.py | contiene il metodo per salvare la predizione in formato .json su Azure Storage |
 
 ## Istruzioni
 
