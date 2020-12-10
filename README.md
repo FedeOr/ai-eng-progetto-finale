@@ -53,5 +53,5 @@ L'interfaccia è realizzata tramite la libreria Python `Streamlit` e le predizio
    e lanciare il comando per far partire l'applicazione di Streamlit
    
    ```python
-   Streamlit run app.py
+   streamlit run app.py
    ```
