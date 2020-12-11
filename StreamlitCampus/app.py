@@ -30,19 +30,7 @@ def main_menu():
             
             df_building = pd.DataFrame(read_data.read_DB_table("Building"))
             df_group = pd.DataFrame(read_data.read_DB_table("Group"))
-            """
-            response = requests.get(get_setting("DB_TRIGGER_URL"), params={'table_name': "Building"})      
-            data_building = response.json().get("data")
-            columns = response.json().get("columns")
-            df_building = pd.DataFrame.from_dict(data_building)
-            df_building.columns = columns
             
-            response = requests.get(get_setting("DB_TRIGGER_URL"), params={'table_name': "Group"})      
-            data_group = response.json().get("data")
-            columns = response.json().get("columns")
-            df_group = pd.DataFrame.from_dict(data_build)
-            df_group.columns = columns
-            """
             names = df_building['Nome'].tolist()
             ids = df_building['Id'].tolist()
             dictionary = dict(zip(ids, names))
@@ -95,20 +83,7 @@ def side_menu():
                 else:
                     
                     df = read_data.read_DB_table(table_name)
-                    ###Senza trigger###
-                    """
-                    df_transform = preprocessing.dataset_transform(df)
-                    df_preprocess = preprocessing.preprocessing(df_transform)
-                    prediction = predict_model.score_model(df_preprocess)
-                    df['Prediction'] = prediction
                     
-                    json_result = df.to_json(orient='split')
-                    utc_timestamp = datetime.datetime.utcnow().strftime("%Y%m%d%H%M%S")
-                    json_filename = f"prediction_{utc_timestamp}.json"
-                    save_prediction.save_json(json_result, json_filename)
-                    """
-                    
-                    ###Con trigger###
                     utc_timestamp = datetime.datetime.utcnow().strftime("%Y%m%d%H%M%S")
                     json_filename = f"prediction_{utc_timestamp}.json"
                     
@@ -117,8 +92,7 @@ def side_menu():
                     data = response.json().get("data")
                     columns = response.json().get("columns")
                     df = pd.DataFrame.from_dict(data)
-                    df.columns = columns
-                    
+                    df.columns = columns                    
                     
                     outliers = df['Prediction'].loc[df.Prediction == -1].count()/df['Prediction'].count() * 100
                     st.write('La predizione effettuata sui dati, ha rilevato la presenza di outlier nella misura del %1.1f%%.' % outliers)
