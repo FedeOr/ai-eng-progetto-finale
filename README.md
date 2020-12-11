@@ -43,6 +43,10 @@ L'interfaccia è realizzata tramite la libreria Python `Streamlit` e le predizio
 
 ## Istruzioni
 
+### N.B
+
+**Prima di procedere con la visualizzazione dell'applicazione è necessario censire il proprio IP pubblico nelle regole del firewall del database**
+
 1. Scaricare lo zip contenente la folder di progetto
 
 2. Da _Visual Studio Code_ aprire la folder di progetto tramite:
